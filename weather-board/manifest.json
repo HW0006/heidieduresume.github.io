@@ -1,0 +1,19 @@
+{
+  "name": "Weather Board",
+  "short_name": "Weather Board",
+  "description": "Weather for 9 cities with jacket, sleeve, rain and snow alerts.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0d2242",
+  "theme_color": "#0d2242",
+  "icons": [
+    {
+      "src": "app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

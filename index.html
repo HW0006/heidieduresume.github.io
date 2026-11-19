@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Heidi Wang: nurse turned designer and builder in San Jose, CA.">
+<style>body{margin:0}img{max-width:100%}</style>
+<title>Heidi Wang</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap">
+<style>
+:root{
+  --bg:#05242a; --bg2:#08303a; --card:#0b3a44; --line:rgba(164,229,224,.14);
+  --fg:#eefaf8; --mu:#9cc4c2; --mint:#A4E5E0; --pine:#0C6170; --camel:#e1cba7;
+  --glass:rgba(5,36,42,.74); --onmint:#05242a; --btn:#37BEB0; --onbtn:#04222a;
+  --display:"Inter Tight","Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --serif:"Instrument Serif",Georgia,serif;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+  --bg:#f4fbfa; --bg2:#DBF5F0; --card:#ffffff; --line:rgba(12,97,112,.14);
+  --fg:#08323a; --mu:#4a6f74; --mint:#0C6170; --pine:#DBF5F0; --camel:#a07a45;
+  --glass:rgba(244,251,250,.8); --onmint:#ffffff; --btn:#0C6170; --onbtn:#ffffff; color-scheme:light}}
+:root[data-theme="light"]{
+  --bg:#f4fbfa; --bg2:#DBF5F0; --card:#ffffff; --line:rgba(12,97,112,.14);
+  --fg:#08323a; --mu:#4a6f74; --mint:#0C6170; --pine:#DBF5F0; --camel:#a07a45;
+  --glass:rgba(244,251,250,.8); --onmint:#ffffff; --btn:#0C6170; --onbtn:#ffffff; color-scheme:light}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(60px + env(safe-area-inset-top,0px))}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.02em}
+p{margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mint)}
+.serif{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0}
+
+/* nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--glass);z-index:30}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--glass);backdrop-filter:saturate(1.6) blur(18px);-webkit-backdrop-filter:saturate(1.6) blur(18px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:20px;height:52px}
+nav .brand{font-family:var(--display);font-weight:600;text-decoration:none;display:flex;align-items:center;gap:8px}
+nav .brand i{width:9px;height:9px;border-radius:50%;background:var(--mint);box-shadow:0 0 12px var(--mint)}
+nav .links{display:flex;gap:22px;margin-left:auto;font-size:13px}
+nav .links a{text-decoration:none;color:var(--mu)} nav .links a:hover{color:var(--fg)}
+@media (max-width:620px){nav .links a.opt{display:none}}
+
+/* hero */
+.hero{position:relative;min-height:min(92vh,860px);display:flex;align-items:flex-end;overflow:hidden;background:#04222a}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.32;filter:blur(3px) saturate(.5) hue-rotate(-60deg);transform:scale(1.04)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,34,42,.2) 0%,rgba(4,34,42,.35) 40%,#04222a 100%),radial-gradient(80% 60% at 20% 100%,rgba(55,190,176,.18),transparent 70%)}
+.hero .wrap{position:relative;z-index:1;padding-block:120px 72px;width:100%}
+.hero h1{font-size:clamp(44px,8.4vw,108px);line-height:.98;font-weight:700;color:#eefaf8;max-width:13ch}
+.hero h1 .serif{color:#A4E5E0}
+.hero p.lede{margin-top:22px;font-size:clamp(17px,2vw,21px);color:#c9e6e3;max-width:46ch}
+.hero .eyebrow{color:#A4E5E0;margin-bottom:18px;display:block}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font:600 15px var(--body);text-decoration:none;border:0;cursor:pointer}
+.btn.pri{background:var(--btn);color:var(--onbtn)}
+.btn.ghost{background:transparent;color:inherit;border:1px solid currentColor}
+.hero .btn.pri{background:#37BEB0;color:#04222a}.hero .btn.ghost{color:#eefaf8;border-color:rgba(238,250,248,.5)}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--mint);outline-offset:3px}
+
+/* profile card */
+.profile{margin-top:-1px;background:var(--bg)}
+.pcard{position:relative;top:-56px;background:var(--card);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 30px 80px -40px rgba(0,0,0,.6)}
+.pcard .banner{height:120px;background:linear-gradient(120deg,#0C6170 0%,#37BEB0 55%,#A4E5E0 85%,#DBF5F0 100%);position:relative}
+.pcard .banner::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 46px,rgba(255,255,255,.06) 46px 47px)}
+.pbody{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px 28px;padding:0 32px 30px;align-items:end}
+.avatar{position:relative;margin-top:-76px;width:168px;height:168px;border-radius:50%;padding:5px;background:conic-gradient(var(--mint) 0 62%,transparent 62% 100%);background-color:var(--card)}
+.avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:5px solid var(--card);display:block}
+.avatar .otw{position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);background:var(--mint);color:var(--onmint);font:700 11px var(--body);letter-spacing:.06em;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.pinfo{min-width:0;padding-top:14px}
+.pinfo h2{font-size:clamp(26px,3.4vw,34px);font-weight:700}
+.pinfo .hl{font-size:17px;margin-top:4px}
+.pinfo .meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mu);font-size:14px;margin-top:10px}
+.pinfo .meta b{color:var(--mint);font-weight:600}
+.pact{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+.pact .btn{padding:10px 18px;font-size:14px}
+.copied{font-size:13px;color:var(--mint);min-height:1.2em;grid-column:1/-1;text-align:right}
+@media (max-width:820px){.pbody{grid-template-columns:minmax(0,1fr);padding:0 20px 24px}.pact{justify-content:flex-start}.copied{text-align:left}.avatar{width:132px;height:132px;margin-top:-66px}}
+
+/* stats strip */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
+.stats div{padding:20px 24px;border-right:1px solid var(--line)}
+.stats div:last-child{border-right:0}
+.stats b{display:block;font:700 26px var(--display);color:var(--fg)}
+.stats span{font-size:13px;color:var(--mu)}
+@media (max-width:820px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stats div:nth-child(2){border-right:0}.stats div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+
+/* sections */
+section.block{padding-block:24px 96px}
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:40px;align-items:start}
+.about h2{font-size:clamp(32px,4.6vw,56px);line-height:1.04}
+.about .txt{display:grid;gap:18px;font-size:18px;color:var(--mu);max-width:62ch}
+.about .txt strong{color:var(--fg);font-weight:600}
+@media (max-width:820px){.about{grid-template-columns:minmax(0,1fr)}}
+
+/* chapters */
+.chapter{padding-block:110px;border-top:1px solid var(--line);position:relative;overflow:hidden}
+.chapter.alt{background:var(--bg2)}
+.chead{text-align:center;max-width:760px;margin:0 auto 54px;display:grid;gap:14px}
+.chead h2{font-size:clamp(40px,7vw,84px);line-height:1}
+.chead p{font-size:clamp(17px,2vw,21px);color:var(--mu)}
+.chead .links{display:flex;justify-content:center;flex-wrap:wrap;gap:22px;margin-top:6px}
+.tl{color:var(--mint);text-decoration:none;font-weight:600;font-size:17px}
+.tl:hover{text-decoration:underline}
+.stage{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:40px;align-items:center}
+.phone{width:300px;max-width:100%;aspect-ratio:390/780;border-radius:44px;padding:10px;background:#04222a;border:1px solid rgba(255,255,255,.14);box-shadow:0 40px 90px -30px rgba(55,190,176,.35),inset 0 0 0 2px #0C6170;position:relative}
+.phone video{width:100%;height:100%;object-fit:cover;border-radius:34px;display:block;background:#f4efe6}
+.feat{display:grid;gap:26px}
+.feat div{display:grid;gap:4px}
+.feat b{font:600 18px var(--display)}
+.feat span{color:var(--mu);font-size:15px}
+.feat.r{text-align:right}
+@media (max-width:900px){.stage{grid-template-columns:minmax(0,1fr)}.stage .phone{margin:0 auto;order:-1}.feat.r{text-align:left}}
+
+.browser{max-width:1000px;margin:0 auto;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#0d1726;box-shadow:0 50px 120px -40px rgba(0,0,0,.7)}
+.browser .bar{display:flex;align-items:center;gap:7px;padding:11px 14px;background:#111c2c}
+.browser .bar i{width:11px;height:11px;border-radius:50%;background:#34465f}
+.browser .bar span{margin-left:12px;font-size:12px;color:#93a8bf}
+.browser video{width:100%;display:block;aspect-ratio:1000/640;object-fit:cover}
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;max-width:1000px;margin:44px auto 0}
+.trio div{padding:22px;border-radius:16px;background:var(--card);border:1px solid var(--line)}
+.trio b{font:600 17px var(--display);display:block;margin-bottom:6px}
+.trio span{font-size:14.5px;color:var(--mu)}
+@media (max-width:820px){.trio{grid-template-columns:minmax(0,1fr)}}
+.vtoggle{display:flex;justify-content:center;margin-top:18px}
+.vtoggle button{background:none;border:1px solid var(--line);color:var(--mu);border-radius:999px;padding:6px 14px;font:500 13px var(--body);cursor:pointer}
+
+/* more work grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:20px}
+.work{display:flex;flex-direction:column;gap:12px;padding:28px;border-radius:22px;background:var(--card);border:1px solid var(--line);text-decoration:none;transition:transform .25s ease,border-color .25s}
+a.work:hover{transform:translateY(-4px);border-color:var(--mint)}
+.work .tag{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mu)}
+.work h3{font-size:24px;line-height:1.15}
+.work p{color:var(--mu);font-size:15px}
+.work .go{margin-top:auto;padding-top:8px;color:var(--mint);font-weight:600;font-size:15px}
+.work .big{font:700 40px var(--display);color:var(--mint);letter-spacing:-.03em}
+.sechead{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+.sechead h2{font-size:clamp(32px,4.6vw,56px);line-height:1.04}
+
+/* experience */
+.two{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px}
+@media (max-width:900px){.two{grid-template-columns:minmax(0,1fr)}}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px}
+.panel h3{font-size:22px;margin-bottom:18px}
+.xp{display:grid;grid-template-columns:48px minmax(0,1fr);gap:4px 16px;padding:18px 0;border-top:1px solid var(--line)}
+.xp:first-of-type{border-top:0;padding-top:0}
+.logo{grid-row:span 3;width:48px;height:48px;border-radius:12px;display:grid;place-items:center;font:700 16px var(--display);background:var(--pine);color:var(--fg)}
+.xp b{font-weight:600}
+.xp .sub{font-size:14px}
+.xp .when{font-size:13px;color:var(--mu)}
+.xp p{grid-column:2;color:var(--mu);font-size:15px;margin-top:6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{padding:7px 13px;border-radius:999px;border:1px solid var(--line);font-size:14px;background:var(--bg2)}
+.stack{display:grid;gap:24px}
+
+/* fun facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:18px}
+.fact{position:relative;padding:26px 24px 24px;border-radius:22px;background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column;gap:10px;transition:transform .3s ease}
+.fact:hover{transform:rotate(-1deg) translateY(-3px)}
+.fact .em{font-size:30px;line-height:1}
+.fact h3{font-size:20px;line-height:1.2}
+.fact p{color:var(--mu);font-size:15px}
+.fact.hero-fact{grid-column:1/-1;flex-direction:row;align-items:center;gap:28px;padding:34px;background:linear-gradient(120deg,var(--pine),var(--card))}
+.fact.hero-fact h3{font-size:clamp(24px,3.2vw,34px)}
+.fact.hero-fact p{font-size:17px;max-width:60ch}
+.fact.hero-fact .em{font-size:52px}
+@media (max-width:620px){.fact.hero-fact{flex-direction:column;align-items:flex-start;padding:26px}}
+@media (prefers-reduced-motion:reduce){.fact:hover{transform:none}}
+
+/* case study sheet */
+.workbtn{font:inherit;color:inherit;text-align:left;cursor:pointer;width:100%}
+.workbtn:hover{transform:translateY(-4px);border-color:var(--mint)}
+.cs{position:fixed;inset:0;z-index:50;display:flex;align-items:flex-end;justify-content:center}
+.cs-scrim{position:absolute;inset:0;background:rgba(2,20,24,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.cs-panel{position:relative;width:min(760px,100%);max-height:92vh;overflow-y:auto;background:var(--bg);border:1px solid var(--line);border-radius:26px 26px 0 0;padding:40px max(22px,env(safe-area-inset-right,0px)) calc(40px + env(safe-area-inset-bottom,0px)) max(22px,env(safe-area-inset-left,0px));display:grid;gap:14px;animation:sheet .45s cubic-bezier(.2,.9,.3,1)}
+@media (min-width:760px){.cs{align-items:center}.cs-panel{border-radius:26px;padding:48px 52px}}
+@keyframes sheet{from{transform:translateY(60px);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.cs-panel{animation:none}}
+.cs-panel h2{font-size:clamp(30px,4.6vw,44px);line-height:1.05}
+.cs-panel h3{font-size:19px;margin-top:12px}
+.cs-panel p,.cs-panel li{color:var(--mu);font-size:16px}
+.cs-panel b{color:var(--fg);font-weight:600}
+.cs-panel .cs-one{font-size:19px;color:var(--fg)}
+.cs-panel ol{margin:0;padding-left:22px;display:grid;gap:10px}
+.cs-panel figure{margin:8px 0 0;display:grid;gap:8px}
+.cs-panel figure img{width:100%;border-radius:14px;display:block}
+.cs-panel figcaption,.cs-note{font-size:14px;color:var(--mu);font-style:italic}
+.cs-x{position:absolute;top:16px;right:16px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--fg);font-size:15px;cursor:pointer}
+
+/* surprise box */
+[hidden]{display:none!important}
+.surprise{margin-top:40px;border-radius:26px;border:1px dashed var(--line);background:var(--bg2);padding:34px 24px;text-align:center;display:grid;gap:18px;justify-items:center}
+.boxbtn{background:none;border:0;cursor:pointer;display:grid;justify-items:center;gap:12px;color:var(--fg);font:inherit}
+.gift{position:relative;width:128px;height:118px}
+.gift .lid,.gift .base{position:absolute;left:50%;transform:translateX(-50%);border-radius:10px}
+.gift .base{bottom:0;width:112px;height:80px;background:var(--btn)}
+.gift .lid{top:14px;width:128px;height:28px;background:var(--mint);transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.gift .ribv{position:absolute;left:50%;top:14px;bottom:0;width:18px;transform:translateX(-50%);background:#DBF5F0;opacity:.9;border-radius:3px}
+.gift .bow{position:absolute;left:50%;top:0;transform:translateX(-50%);font-size:26px;line-height:1;transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.boxbtn:hover .lid{transform:translateX(-50%) rotate(-6deg) translateY(-6px)}
+.boxbtn:hover .bow{transform:translateX(-50%) translateY(-8px) rotate(-8deg)}
+@media (prefers-reduced-motion:no-preference){.boxbtn .gift{animation:wig 2.6s ease-in-out infinite}}
+@keyframes wig{0%,84%,100%{transform:none}88%{transform:rotate(-5deg)}92%{transform:rotate(5deg)}96%{transform:rotate(-3deg)}}
+.boxbtn b{font:600 20px var(--display)}
+.boxbtn span.s{color:var(--mu);font-size:15px}
+.reveal-pics{width:100%;display:grid;gap:22px}
+.reveal-pics h3{font-size:clamp(24px,3.4vw,36px)}
+.reveal-pics h3 .serif{color:var(--mint)}
+.pols{display:flex;flex-wrap:wrap;justify-content:center;gap:26px 22px;padding:10px 0 4px}
+.pol{background:#fdfdfb;color:#163238;padding:10px 10px 0;border-radius:4px;box-shadow:0 18px 40px -18px rgba(0,0,0,.55);width:min(240px,78vw);transform:rotate(var(--r,0deg));transition:transform .35s ease;opacity:0;animation:pop .55s cubic-bezier(.3,1.5,.5,1) forwards;animation-delay:var(--d,0s)}
+.pol:hover{transform:rotate(0) scale(1.04);z-index:2;position:relative}
+.pol img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:2px;background:#e7efee}
+.pol figcaption{padding:10px 4px 12px;display:grid;gap:3px;text-align:left}
+.pol figcaption em{font-style:normal;font:700 11px var(--body);letter-spacing:.12em;text-transform:uppercase;color:#0C6170}
+.pol figcaption span{font:400 19px/1.2 var(--serif);font-style:italic}
+@keyframes pop{0%{opacity:0;transform:translateY(40px) rotate(0) scale(.7)}100%{opacity:1;transform:rotate(var(--r,0deg))}}
+@media (prefers-reduced-motion:reduce){.pol{animation:none;opacity:1}}
+@media (max-width:620px){.pols{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;padding:14px 8px 18px;margin:0 -8px}.pol{flex:0 0 72vw;scroll-snap-align:center}}
+.closebox{background:none;border:1px solid var(--line);color:var(--mu);border-radius:999px;padding:8px 16px;font:500 14px var(--body);cursor:pointer;justify-self:center}
+
+/* contact */
+.contact{text-align:center;padding-block:120px;border-top:1px solid var(--line);background:radial-gradient(60% 80% at 50% 120%,rgba(55,190,176,.18),transparent 70%)}
+.contact h2{font-size:clamp(40px,7vw,84px);line-height:1}
+.contact p{color:var(--mu);font-size:19px;margin:18px auto 0;max-width:44ch}
+.mail{display:inline-flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px;margin-top:34px;padding:10px 10px 10px 24px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+.mail code{font:500 18px var(--body);user-select:all}
+footer{padding-block:28px;border-top:1px solid var(--line);color:var(--mu);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}a.work:hover{transform:none}}
+</style>
+</head>
+<body>
+
+
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top"><i></i>Heidi Wang</a>
+    <div class="links">
+      <a href="#work">Work</a>
+      <a class="opt" href="#experience">Experience</a>
+      <a class="opt" href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <video src="lighthouse.mp4" autoplay muted loop playsinline aria-hidden="true" data-bg></video>
+  <div class="wrap">
+    <span class="eyebrow">Nurse · Designer · Builder · San Jose, CA</span>
+    <h1>I cared for people. <span class="serif">Now I design for them.</span></h1>
+    <p class="lede">I spent 1,216 clinical hours in Taiwanese hospitals. Now I turn what I saw there into clear, kind software, prototyped in code.</p>
+    <div class="cta">
+      <a class="btn pri" href="#work">See the work</a>
+      <a class="btn ghost" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</header>
+
+<div class="profile">
+  <div class="wrap">
+    <article class="pcard reveal" aria-label="Profile">
+      <div class="banner"></div>
+      <div class="pbody">
+        <div class="avatar">
+          <img src="heidi.jpg" alt="Portrait of Heidi Wang" width="600" height="600">
+          <span class="otw">#OpenToWork</span>
+        </div>
+        <div class="pinfo">
+          <h2>Han Yu (Heidi) Wang</h2>
+          <p class="hl">Designer &amp; builder with a nursing background · UX, prototyping, health tech</p>
+          <div class="meta">
+            <span>San Jose, California</span>
+            <span><b>83</b> connections</span>
+            <span>English · Mandarin</span>
+          </div>
+        </div>
+        <div class="pact">
+          <button class="btn pri" type="button" data-copy>Copy email</button>
+          <a class="btn ghost" href="https://docs.google.com/document/d/1s8ryMOMTj-lYo0ADfm0PkTR3AV6qpYPwVgTfiXLN_YM/edit?usp=sharing" target="_blank" rel="noopener">Portfolio</a>
+        </div>
+        <div class="copied" aria-live="polite"></div>
+      </div>
+      <div class="stats">
+        <div><b>1,216</b><span>clinical hours</span></div>
+        <div><b>8</b><span>hospital rotations</span></div>
+        <div><b>7</b><span>projects built or prototyped</span></div>
+        <div><b>3</b><span>languages in one interface</span></div>
+      </div>
+    </article>
+  </div>
+</div>
+
+<section class="block" id="about">
+  <div class="wrap about reveal">
+    <div>
+      <span class="eyebrow">About</span>
+      <h2 style="margin-top:12px">Built for the person at the end of a <span class="serif">long shift.</span></h2>
+    </div>
+    <div class="txt">
+      <p>I trained as a nurse at <strong>Chung Shan Medical University</strong> in Taiwan, then worked with older adults and families at <strong>Belmont Village</strong> and with kids at a pediatric dental office here in the Bay Area.</p>
+      <p>Again and again I watched good people struggle with tools that made their day harder. So I started designing my own: <strong>a follow-up tracker</strong> for operating-room staff, <strong>a dog-walking app</strong>, and <strong>a Mandarin phrasebook</strong> that real people paid for.</p>
+      <p>My rule is simple. If a tired person can't understand it at a glance, it isn't done yet.</p>
+    </div>
+  </div>
+</section>
+
+<div id="work"></div>
+
+<section class="chapter">
+  <div class="wrap">
+    <div class="chead reveal">
+      <span class="eyebrow">Barkr · Mobile prototype</span>
+      <h2>Your dog. Walked. <span class="serif">Done.</span></h2>
+      <p>Book a walker in one tap, follow the walk live, and book your favorite walker again in two.</p>
+      <div class="links"><a class="tl" href="https://claude.ai/artifact/B12GQrHwExnCoRTC7RTpNr" target="_blank" rel="noopener">Try the live app ›</a></div>
+    </div>
+    <div class="stage reveal">
+      <div class="feat r">
+        <div><b>One screen to ask</b><span>Dog, now or later, how long, walk or hike. Then one tap.</span></div>
+        <div><b>Walkers you can judge fast</b><span>Rating, walks done, distance and price, side by side.</span></div>
+      </div>
+      <div class="phone"><video src="barkr.mp4" poster="b_poster.jpg" autoplay muted loop playsinline aria-label="Screen recording: booking a walk, following it live, then rating it in Barkr"></video></div>
+      <div class="feat">
+        <div><b>Live, not silent</b><span>A timeline and quick messages while the walk happens.</span></div>
+        <div><b>"Done" means done</b><span>Rated, tipped, logged, and home says your dog is walked today.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="chapter alt">
+  <div class="wrap">
+    <div class="chead reveal">
+      <span class="eyebrow">Lighthouse Keeper · Concept prototype</span>
+      <h2>Bring every patient <span class="serif">home to harbor.</span></h2>
+      <p>A follow-up tracker for operating-room staff, from my own internship. Overdue patients sail in the storm; every booked step moves their ship toward the lighthouse.</p>
+      <div class="links"><a class="tl" href="https://claude.ai/artifact/3VQhTgMByf1neckUvfnon8" target="_blank" rel="noopener">Open the demo ›</a></div>
+    </div>
+    <div class="browser reveal">
+      <div class="bar"><i></i><i></i><i></i><span>Lighthouse Keeper · demo with synthetic patients</span></div>
+      <video src="lighthouse.mp4" poster="l_poster.jpg" autoplay muted loop playsinline aria-label="Screen recording: booking a follow-up, closing a loop, and switching between English, Chinese and Japanese"></video>
+    </div>
+    <div class="trio reveal">
+      <div><b>A small game, on purpose</b><span>People in a busy OR want to focus, not play. So the game stays small and the words stay plain.</span></div>
+      <div><b>Overdue comes first</b><span>Each patient is checked against their own follow-up window, so the most urgent is always on top.</span></div>
+      <div><b>English, 中文, 日本語</b><span>The whole interface switches language for multilingual care teams.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="chapter">
+  <div class="wrap">
+    <div class="sechead reveal">
+      <div><span class="eyebrow">More work</span><h2 style="margin-top:12px">Small things, <span class="serif">made with care.</span></h2></div>
+    </div>
+    <div class="grid reveal">
+      <a class="work" href="https://heidisam7.gumroad.com/l/MandarinSurvival" target="_blank" rel="noopener">
+        <span class="tag">App · Launched</span>
+        <h3>Emergency Mandarin</h3>
+        <p>A phrasebook for people who never went to Chinese school but have a Mandarin meeting this week. Sorted by meeting moments, with audio at a slow speed and pinyin under every phrase.</p>
+        <span class="go">On Gumroad ›</span>
+      </a>
+      <a class="work" href="https://www.overleaf.com/read/mnkmpqgvcsvp#d83b2a" target="_blank" rel="noopener">
+        <span class="tag">Research brief · LaTeX</span>
+        <span class="big">10–15 mm</span>
+        <h3>Z-Axis Drift in Surgical AI Vision</h3>
+        <p>Tilt the camera 30° and common vision models still look right on screen, while their depth guess drifts by 10–15 mm. I tested it with real surgical tweezers.</p>
+        <span class="go">Read the brief ›</span>
+      </a>
+      <a class="work" href="https://www.figma.com/proto/iFBi3e2Nfn86O4aAdwFcqu/Linkind-practice?node-id=76-178&amp;t=fCekGeuOdgIuSv01-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=0%3A1&amp;starting-point-node-id=1%3A2" target="_blank" rel="noopener">
+        <span class="tag">Figma · Wireframe</span>
+        <h3>Social Feed Wireframe Study</h3>
+        <p>I rebuilt a familiar mobile feed in grayscale to learn its structure: a reusable post card, two kinds of posts, and a clickable phone prototype.</p>
+        <span class="go">Tap through it ›</span>
+      </a>
+      <button class="work workbtn" type="button" data-open="cs3d">
+        <span class="tag">3D printing · 2017</span>
+        <h3>3D Modeling Software Study</h3>
+        <p>Compared Blender, SketchUp and Tinkercad, chose the one a beginner could actually learn, and took a design all the way to a printed enclosure.</p>
+        <span class="go">Tap through it ›</span>
+      </button>
+      <button class="work workbtn" type="button" data-open="csmusic">
+        <span class="tag">Electronics · Hand-built</span>
+        <h3>Electrical Music Box</h3>
+        <p>I soldered the circuit board (through-hole and surface-mount parts), then wired it to a transformer and a speaker inside a metal case.</p>
+        <span class="go">One click to it ›</span>
+      </button>
+      <div class="work">
+        <span class="tag">Everyday UX</span>
+        <img src="fun/card.jpg" alt="A handwritten card on a steering wheel that reads: Bring your key and your phone, thanks." loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;display:block">
+        <h3>The Steering-Wheel Card</h3>
+        <p>A tiny card I made to help me remember things while driving. Good design doesn't have to be on a screen.</p>
+        <span class="go">small gesture:)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="fun">
+  <div class="wrap">
+    <div class="sechead reveal"><div><span class="eyebrow">Fun facts</span><h2 style="margin-top:12px">A few things <span class="serif">about me.</span></h2></div></div>
+    <div class="facts reveal">
+      <div class="fact hero-fact">
+        <span class="em" aria-hidden="true">🤝</span>
+        <div style="display:grid;gap:8px"><h3>Easy to work with. <span class="serif">Hard to fool with "good enough."</span></h3>
+        <p>I'm happy to take feedback and try it your way. But if something isn't clear for the person using it yet, I'll keep going until it is, kindly.</p></div>
+      </div>
+      <div class="fact"><span class="em" aria-hidden="true">🎁</span><h3>I love giving gifts</h3><p>My favorite part is figuring out what would truly mean something to the other person. My first app started as a gift for a friend.</p></div>
+      <div class="fact"><span class="em" aria-hidden="true">📊</span><h3>I enjoy a good spreadsheet</h3><p>Seriously. A clean tracker that flags what's overdue makes me happy.</p></div>
+      <div class="fact"><span class="em" aria-hidden="true">🚗</span><h3>I design for myself too</h3><p>I made a little card for my steering wheel so I stop forgetting things. Good design doesn't have to live on a screen.</p></div>
+      <div class="fact"><span class="em" aria-hidden="true">🗣️</span><h3>I think in two languages</h3><p>I switch between English and Mandarin all day, and I like building things that work for people in both.</p></div>
+      <div class="fact"><span class="em" aria-hidden="true">🔧</span><h3>Nurse with a soldering iron</h3><p>Before nursing school, I studied electronics. I built a music box by hand and printed my first 3D part in high school.</p></div>
+    </div>
+    <div class="surprise reveal" id="surprise">
+      <button class="boxbtn" type="button" id="openBox" aria-expanded="false" aria-controls="pics">
+        <span class="gift" aria-hidden="true"><span class="base"></span><span class="ribv"></span><span class="lid"></span><span class="bow">🎀</span></span>
+        <b>Surprise box</b>
+        <span class="s">Tap to open. Proof I'm easy to work with.</span>
+      </button>
+      <div class="reveal-pics" id="pics" hidden>
+        <h3>Easy to work with, <span class="serif">from engineering to patients to coworkers and professors.</span></h3>
+        <div class="pols">
+          <figure class="pol" style="--r:-4deg;--d:.05s"><img src="fun/selfie.jpg" style="object-position:50% 80%" alt="Heidi smiling through a Halloween selfie-station cutout" loading="lazy"><figcaption><em>Team spirit</em><span>Will put my head on the line for the team. (Halloween only.)</span></figcaption></figure>
+          <figure class="pol" style="--r:3deg;--d:.15s"><img src="fun/capping.jpg" alt="Heidi in a nursing cap with a nurse in white uniform" loading="lazy"><figcaption><em>Patients</em><span>Capping day. Where my care for patients officially began.</span></figcaption></figure>
+          <figure class="pol" style="--r:-2deg;--d:.25s"><img src="fun/classmate.jpg" alt="Heidi in a striped nursing uniform with a classmate in scrubs" loading="lazy"><figcaption><em>Coworkers</em><span>Classmates first, teammates on every shift after.</span></figcaption></figure>
+          <figure class="pol" style="--r:4deg;--d:.35s"><img src="fun/daan.jpg" alt="Heidi at her Daan Vocational High School graduation with a classmate" loading="lazy" style="object-position:30% 30%"><figcaption><em>Engineering</em><span>Electronics grad. Already speaking engineer.</span></figcaption></figure>
+          <figure class="pol" style="--r:-3deg;--d:.45s"><img src="fun/vhs.jpg" alt="Heidi with two friends, retro camcorder-style photo" loading="lazy"><figcaption><em>Friends</em><span>Nov 7, 2021. Any room gets warmer.</span></figcaption></figure>
+          <figure class="pol" style="--r:2deg;--d:.55s"><img src="fun/masks.jpg" alt="Heidi and three friends in face masks making peace signs" loading="lazy" style="object-position:20% 50%"><figcaption><em>Crew</em><span>Masks on, smiles still on.</span></figcaption></figure>
+          <figure class="pol" style="--r:3deg;--d:.65s"><img src="fun/family.jpg" alt="Heidi standing politely next to a family member in front of a brick wall with plants" loading="lazy" style="object-position:55% 30%"><figcaption><em>Family</em><span>Polite mode: on.</span></figcaption></figure>
+          <figure class="pol" style="--r:-4deg;--d:.75s"><img src="fun/little.jpg" alt="Young Heidi making a peace sign next to her dad" loading="lazy" style="object-position:70% 40%"><figcaption><em>Origin story</em><span>The peace sign started early.</span></figcaption></figure>
+        </div>
+        <button class="closebox" type="button" id="closeBox">Close the box</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="chapter alt" id="experience">
+  <div class="wrap">
+    <div class="sechead reveal"><div><span class="eyebrow">Experience</span><h2 style="margin-top:12px">Where I learned <span class="serif">to care.</span></h2></div></div>
+    <div class="two reveal">
+      <div class="panel">
+        <h3>Experience</h3>
+        <div class="xp"><span class="logo">DA</span><b>Dental Assistant</b><span class="sub">Camino Pediatric Dentistry · Sunnyvale, CA</span><span class="when">Jul 2025 – Sep 2025</span><p>Wrote weekly handouts that turned care instructions into plain language for families.</p></div>
+        <div class="xp"><span class="logo">EL</span><b>Enrichment Leader</b><span class="sub">Belmont Village Senior Living · Los Gatos, CA</span><span class="when">Oct 2024 – Jan 2025</span><p>Designed and ran daily programs for 15–20 residents, including people living with dementia, and worked closely with their families.</p></div>
+        <div class="xp"><span class="logo">N</span><b>Clinical Nursing Intern</b><span class="sub">Chung Shan Medical University Hospital + 4 partner sites · Taichung, Taiwan</span><span class="when">2022 – 2024</span><p>1,216 clinical hours across 8 rotations, including a 19-room surgical suite.</p></div>
+      </div>
+      <div class="stack">
+        <div class="panel">
+          <h3>Education &amp; licenses</h3>
+          <div class="xp"><span class="logo" style="font-size:14px">BSN</span><b>Bachelor of Science in Nursing</b><span class="sub">Chung Shan Medical University, Taiwan</span><span class="when">2024</span></div>
+          <div class="xp"><span class="logo">RN</span><b>Registered Nurse</b><span class="sub">Taiwan</span><span class="when">2024</span></div>
+          <div class="xp"><span class="logo">EE</span><b>Electronics Engineering program</b><span class="sub">Taipei Municipal Daan Vocational High School</span><span class="when">2018</span></div>
+        </div>
+        <div class="panel">
+          <h3>Skills</h3>
+          <div class="chips"><span>Figma</span><span>Prototyping in code</span><span>AI design &amp; coding tools</span><span>Layout &amp; typography</span><span>LaTeX</span><span>Tinkercad</span><span>Patient &amp; family communication</span><span>English &amp; Mandarin</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap reveal">
+    <span class="eyebrow">Contact</span>
+    <h2 style="margin-top:14px">Let's make something <span class="serif">kind.</span></h2>
+    <p>I'm looking for a junior design, UX or health-tech role in the Bay Area. I'd love to hear from you.</p>
+    <div class="mail"><code id="email">heidi52sam@gmail.com</code><button class="btn pri" type="button" data-copy>Copy</button></div>
+    <div class="copied" style="text-align:center;margin-top:10px" aria-live="polite"></div>
+  </div>
+</section>
+
+<div class="cs" id="cs3d" role="dialog" aria-modal="true" aria-labelledby="cs3dT" hidden>
+  <div class="cs-scrim" data-close></div>
+  <article class="cs-panel">
+    <button class="cs-x" type="button" data-close aria-label="Close">✕</button>
+    <span class="eyebrow">Portfolio 3 · 3D printing · 2017</span>
+    <h2 id="cs3dT">3D Modeling Software Study</h2>
+    <p class="cs-one">A high-school research project that compared 3D modeling tools, picked the one a beginner could actually learn, and took a design from the browser to a printed part.</p>
+    <figure><img src="fun/print3d.jpg" alt="The printed white enclosure from two angles, with raised lettering and cut-out window openings" loading="lazy"><figcaption>The printed enclosure, with raised lettering on the sides and cut-out windows.</figcaption></figure>
+    <h3>Context</h3>
+    <p>Second-year electronics project at Taipei Municipal Daan Vocational High School, 2017. Team of two, with a faculty advisor.</p>
+    <h3>The problem</h3>
+    <p>3D printing was already used in education, art, and construction, and was moving into communications, aerospace, and automotive work. We wanted to learn additive manufacturing by making something ourselves, and as beginners we first had to choose a tool we could learn within a project course.</p>
+    <h3>Key decisions</h3>
+    <ol>
+      <li><b>Compared three tools before choosing.</b> Blender: as capable as 3ds Max or Maya, suited to people who plan to go deep. SketchUp: clean interface and a shared model library, suited to architects and designers. Tinkercad: one of the simplest, free, and it runs in the browser.</li>
+      <li><b>Chose Tinkercad for how it is used, not for its feature list.</b> The interface is simple and quick to pick up, and the web version removes the download and install step.</li>
+      <li><b>Split the work into two tracks.</b> First learn the modeling software, then learn the printer, then bring the two together in one printed piece.</li>
+      <li><b>Learned the printer part by part.</b> For the school's H360 3D printer we documented the platform, the nozzle, and the frame, then the operating steps: loading filament, reading a file from the SD card, preheating, and positioning the nozzle.</li>
+      <li><b>Wrote down every step with a screenshot, so the process can be repeated:</b> place a basic shape, adjust its dimensions, then use a "hole" shape to cut openings.</li>
+    </ol>
+    <p class="cs-note">Modeling in Tinkercad: placing a basic shape, then using a "hole" shape to cut openings.</p>
+  </article>
+</div>
+
+<div class="cs" id="csmusic" role="dialog" aria-modal="true" aria-labelledby="csmT" hidden>
+  <div class="cs-scrim" data-close></div>
+  <article class="cs-panel">
+    <button class="cs-x" type="button" data-close aria-label="Close">✕</button>
+    <span class="eyebrow">Portfolio 4 · Electronics build</span>
+    <h2 id="csmT">Electrical Music Box</h2>
+    <p class="cs-one">An electronic music box I built by hand: a circuit board, a transformer, and a speaker wired into a metal case.</p>
+    <figure><img src="fun/musicbox.jpg" alt="Inside the open metal case: a green circuit board on standoffs, a transformer, a tied-down power cord, and a speaker bolted to the panel" loading="lazy"><figcaption>Inside the case: the board, the 15 V transformer, and the speaker.</figcaption></figure>
+    <h3>What it is</h3>
+    <p>The board drives a small speaker and is powered from the wall through a 15 V transformer. A power LED sits on the board, and the controls come out through the side panel.</p>
+    <h3>My part</h3>
+    <p>I soldered the board, then assembled and wired the case.</p>
+    <h3>What the build involved</h3>
+    <ol>
+      <li><b>Two kinds of soldering on one board.</b> Through-hole resistors, diodes, transistors, and capacitors, plus small surface-mount parts.</li>
+      <li><b>Wall power kept apart from the board.</b> The power cord and transformer sit on one side of the case, with the cables tied down.</li>
+      <li><b>Everything fixed to the case.</b> The board is raised on standoffs and the speaker is bolted to the panel, so nothing moves when the box is carried.</li>
+      <li><b>Built to be checked.</b> The board has test points and trimmers for measuring and adjusting the circuit after assembly.</li>
+    </ol>
+    <p class="cs-note">I also hold an electronics certification.</p>
+  </article>
+</div>
+
+<footer><div class="wrap"><span>© 2026 Han Yu (Heidi) Wang · San Jose, CA</span><span>Demo videos are real screen recordings of my prototypes.</span></div></footer>
+
+<script>
+(function(){
+  const EMAIL="heidi52sam@gmail.com";
+  document.querySelectorAll("[data-copy]").forEach(b=>b.addEventListener("click",()=>{
+    const out=b.closest(".pbody, .wrap").querySelector(".copied");
+    const ok=()=>{if(out)out.textContent="Copied: "+EMAIL;setTimeout(()=>{if(out)out.textContent=""},2600)};
+    const fallback=()=>{const r=document.createRange();r.selectNodeContents(document.getElementById("email"));const s=getSelection();s.removeAllRanges();s.addRange(r);if(out)out.textContent=EMAIL+" (selected, press copy)"};
+    try{navigator.clipboard.writeText(EMAIL).then(ok,fallback)}catch(e){fallback()}
+  }));
+  const ob=document.getElementById("openBox"),pics=document.getElementById("pics");
+  ob.addEventListener("click",()=>{ob.hidden=true;ob.setAttribute("aria-expanded","true");pics.hidden=false;pics.querySelectorAll(".pol").forEach(p=>{p.style.animation="none";p.offsetWidth;p.style.animation=""})});
+  document.getElementById("closeBox").addEventListener("click",()=>{pics.hidden=true;ob.hidden=false;ob.setAttribute("aria-expanded","false");ob.focus()});
+  let lastBtn=null;
+  const closeCs=cs=>{cs.hidden=true;document.body.style.overflow="";if(lastBtn)lastBtn.focus()};
+  document.querySelectorAll("[data-open]").forEach(b=>b.addEventListener("click",()=>{const cs=document.getElementById(b.dataset.open);lastBtn=b;cs.hidden=false;document.body.style.overflow="hidden";cs.querySelector(".cs-panel").scrollTop=0;cs.querySelector(".cs-x").focus()}));
+  document.querySelectorAll(".cs").forEach(cs=>cs.querySelectorAll("[data-close]").forEach(x=>x.addEventListener("click",()=>closeCs(cs))));
+  document.addEventListener("keydown",e=>{if(e.key==="Escape")document.querySelectorAll(".cs:not([hidden])").forEach(closeCs)});
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const vids=[...document.querySelectorAll("video")];
+  if(reduce){vids.forEach(v=>{v.removeAttribute("autoplay");v.pause();if(!v.dataset.bg)v.controls=true})}
+  if("IntersectionObserver" in window){
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+    document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+    if(!reduce){const vo=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){const p=v.play();if(p)p.catch(()=>{})}else v.pause()}),{threshold:.25});vids.forEach(v=>vo.observe(v))}
+  }else document.querySelectorAll(".reveal").forEach(el=>el.classList.add("in"));
+})();
+</script>
+</body>
+</html>
